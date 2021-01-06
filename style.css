@@ -61,6 +61,8 @@ body {
 
 .column {
   padding-right: 4rem;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
 .left,
@@ -216,6 +218,10 @@ body {
   padding: 6vw 0;
 }
 
+/*
+   Schedule
+   ========================================================================== */
+
 .schedule {
   list-style: none;
   padding-left: 0;
@@ -237,6 +243,44 @@ body {
 
 .schedule-position {
   color: var(--dim);
+}
+
+.schedule-abstract {
+  position: relative;
+  cursor: pointer;
+  padding: 0 1.4rem;
+}
+
+.schedule-abstract .schedule-abstract__title::before {
+  content: "";
+  background-image: url(arrow-dropright.svg);
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  font-size: 13px;
+  left: -1px;
+  top: 6px;
+  transition: all 0.2s ease-in-out;
+  transform-origin: center;
+}
+
+.schedule-abstract:not(.is-open):hover .schedule-abstract__title::before {
+  transform: rotate(90deg);
+}
+
+.schedule-abstract.is-open .schedule-abstract__title::before {
+  transform: rotate(90deg);
+}
+
+.schedule-abstract .schedule-abstract__content {
+  display: none;
+  padding: 0.6rem 0;
+}
+
+.schedule-abstract .schedule-abstract__content p:last-of-type {
+  margin: 0;
 }
 
 /* ==========================================================================
